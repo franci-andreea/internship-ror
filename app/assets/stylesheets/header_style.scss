@@ -1,0 +1,79 @@
+$white: #f0f8ff;
+$light_brown: #c78a54; 
+
+header {
+    min-height: 100px;
+    z-index: 0;
+}
+  
+header::before {
+    filter: contrast(80%);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    content: "";
+    background-image: image-url('restaurant-background3.jpg');
+    background-size: cover;
+    display: block;
+    z-index: -1;
+}
+
+.logo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 48px;
+    margin-top: 48px;
+    padding: 24px;
+}
+
+.logo-navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.navbar {
+    display: inline;
+    list-style: none;
+    padding: 24px;
+}
+
+#navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin-right: 48px;
+    margin-top: 48px;
+}
+
+#dot {
+    color:#EFB37F;
+}
+
+.main-message {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 96px;
+    margin-right: 96px;
+}
+
+hr.white-line {
+    border: 1px solid $white;
+    width: 70%;
+}
+
+h1 {
+    font-size: 96px;
+}
+
+a {
+    color: $white;
+}
+
+a:hover {
+    color: $light_brown;
+}

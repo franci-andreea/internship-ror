@@ -1,0 +1,103 @@
+$white: #f0f8ff;
+$dropdown_white: #f1f1f1;
+$dropdown_hover_white: #dddddd;
+$light_brown: #c78a54;
+
+.body-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: $white;
+}
+
+.filters-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    background-color: $light_brown;
+}
+
+.dropdown-menus-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.dropdown-menu {
+    margin: 24px 24px 24px 24px;
+    position: relative;
+    display: inline-block;
+}
+
+.drop-button {
+  background-color: transparent;
+  color: $white;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.drop-button:hover, .drop-button:focus {
+  background-color: transparent;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: $dropdown_white;
+    min-width: 160px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown a:hover {
+    background-color: $dropdown_hover_white;
+}
+
+.show {
+    display: block;
+}
+
+.price-range-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.price-range-item {
+    padding: 4px;
+}
+
+.food-items-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: $white;
+    margin-top: 12px;
+}
+
+.food-item {
+    display: flex;
+    flex: 1 0 21%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 18px;
+    margin: 15px;
+
+    transition: all .2s ease-in-out; 
+}
+
+.food-item:hover {
+    transform: scale(1.1); 
+}
