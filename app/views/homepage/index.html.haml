@@ -35,10 +35,10 @@
     %div{:class => "border-wrapper"}
       - @products.each do |product|
         %div{:class => "food-item"}
-          %img{:class => "food-image", :src => "#{image_path(product.image.filename)}"}
+          %img{:class => "food-image", :src => product.image.url}
 
           %p{:class => "food-name"}=product.name
 
           %p{:class => "food-category"}=product.category
 
-          %p{:class => "food-price"}="$#{product.price.round(2)}"
+          %p{:class => "food-price"}="$#{number_with_precision(product.price, precision: 2)}"
