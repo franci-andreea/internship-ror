@@ -1,7 +1,12 @@
 $white: #f0f8ff;
 $dropdown_white: #f1f1f1;
 $dropdown_hover_white: #dddddd;
+$light_gray: #c5c3c2;
 $light_brown: #c78a54;
+
+.body-margin {
+    margin: 0;
+}
 
 .body-container {
     display: flex;
@@ -84,6 +89,11 @@ $light_brown: #c78a54;
     justify-content: center;
     background-color: $white;
     margin-top: 12px;
+}
+
+.border-wrapper {
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .food-item {

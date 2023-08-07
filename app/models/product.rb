@@ -4,7 +4,7 @@ class Product < ApplicationRecord
   
   enum category: {
     NO_CATEGORY: 0,
-    ENTREES: 1,
+    ENTREE: 1,
     SECOND_COURSE: 2,
     DESSERT: 3
   }

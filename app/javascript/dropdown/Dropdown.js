@@ -1,27 +1,28 @@
 /* When the user clicks on the button, 
 toggle between hiding and showing the dropdown content */
-function dropDownCategory() {
-  document.getElementById("dropdown-category").classList.toggle("show");
-}
+document.addEventListener("DOMContentLoaded", (event) => {
 
-function dropDownSorting() {
-    document.getElementById("dropdown-sorting").classList.toggle("show");
-}
+  console.log('content loaded');
 
-function dropDownVegetarian() {
-    document.getElementById("dropdown-vegetarian").classList.toggle("show");
-}
+  const category = document.getElementById("dropdown-category")
+  category.addEventListener(
+    'click',
+    (event) => {
+      category.classList.toggle('show');
+    } 
+  );
 
-// Close the dropdown if the user clicks outside of it
-window.onclick = function(event) {
-  if (!event.target.matches('.drop-button')) {
-    var dropdowns = document.getElementsByClassName("dropdown-content");
+  // Close the dropdown if the user clicks outside of it
+  window.onclick = function(event) {
+    if (!event.target.matches('.drop-button')) {
+      var dropdowns = document.getElementsByClassName("dropdown-content");
 
-    for (let i = 0; i < dropdowns.length; i++) {
-      var openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains('show')) {
-        openDropdown.classList.remove('show');
+      for (let i = 0; i < dropdowns.length; i++) {
+        var openDropdown = dropdowns[i];
+        if (openDropdown.classList.contains('show')) {
+          openDropdown.classList.remove('show');
+        }
       }
     }
   }
-}
+});

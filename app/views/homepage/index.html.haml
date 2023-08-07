@@ -1,0 +1,44 @@
+%div{:class => "body-container"}
+  %div{:class => "filters-container"}  
+    %div{:class => "dropdown-menus-container"}
+      %div{:class => "dropdown-menu"}
+        %button{:class => "drop-button"}CATEGORY
+
+        %div{:class => "dropdown-content", :id => "dropdown-category"}
+          %a{:href => "#"}Second Course
+          %a{:href => "#"}Entrees
+          %a{:href => "#"}Desserts
+
+      %div{:class => "dropdown-menu"}
+        %button{:class => "drop-button"}SORTING
+
+        %div{:class => "dropdown-content", :id => "dropdown-sorting"}
+
+
+      %div{:class => "dropdown-menu"}
+        %button{:class => "drop-button"}VEGETARIAN
+
+        %div{:class => "dropdown-content", :id => "dropdown-vegetarian"}
+          %a{:href => "#"}Vegetarian
+          %a{:href => "#"}Non-Vegetarian
+
+    %div{:class => "price-range-container"}
+      %p{:class => "price-range-item price"}PRICE
+
+      %p{:class => "price-range-item price", :id => "min-slider"}15$
+
+      %div{:id => "uislider"}
+
+      %p{:class => "price-range-item price", :id => "max-slider"}100$
+
+  %div{:class => "food-items-container"}
+    %div{:class => "border-wrapper"}
+      - @products.each do |product|
+        %div{:class => "food-item"}
+          %img{:class => "food-image", :src => "#{image_path(product.image.filename)}"}
+
+          %p{:class => "food-name"}=product.name
+
+          %p{:class => "food-category"}=product.category
+
+          %p{:class => "food-price"}="$#{product.price.round(2)}"

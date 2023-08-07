@@ -1,0 +1,14 @@
+%head
+  %title EUREKA CAFFE
+
+  %meta{:name => "viewport", :content => "width=device-width,initial-scale=1"}
+  = csrf_meta_tags
+  = csp_meta_tag
+
+  = render 'layouts/stylesheets_def'
+  = javascript_importmap_tags
+
+%body{:class => "body-margin"}
+  = render 'layouts/header'
+  = yield
+  = render 'layouts/footer'
