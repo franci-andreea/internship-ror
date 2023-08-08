@@ -1,44 +1,48 @@
-%div{:class => "body-container"}
-  %div{:class => "filters-container"}  
-    %div{:class => "dropdown-menus-container"}
-      %div{:class => "dropdown-menu"}
-        %button{:class => "drop-button"}CATEGORY
+.body-container
+  .filters-container 
+    .dropdown-menus-container
+      .dropdown-menu#dropdown-category
+        %button.drop-button CATEGORY
 
-        %div{:class => "dropdown-content", :id => "dropdown-category"}
-          %a{:href => "#"}Second Course
-          %a{:href => "#"}Entrees
-          %a{:href => "#"}Desserts
+        .dropdown-content
+          = link_to 'Entrees', filtered_products_path(category: 'entree')
+          = link_to 'Second Courses', filtered_products_path(category: 'second-course')
+          = link_to 'Desserts', filtered_products_path(category: 'dessert')
 
-      %div{:class => "dropdown-menu"}
-        %button{:class => "drop-button"}SORTING
+      .dropdown-menu#dropdown-sorting
+        %button.drop-button SORTING
 
-        %div{:class => "dropdown-content", :id => "dropdown-sorting"}
+        .dropdown-content
+          = link_to 'A to Z', sorted_products_path(order: 'az')
+          = link_to 'Z to A', sorted_products_path(order: 'za')
+          = link_to 'Ascending Price', sorted_products_path(order: 'ascending')
+          = link_to 'Descending Price', sorted_products_path(order: 'descending')
+          
 
+      .dropdown-menu#dropdown-vegetarian
+        %button.drop-button VEGETARIAN
 
-      %div{:class => "dropdown-menu"}
-        %button{:class => "drop-button"}VEGETARIAN
+        .dropdown-content
+          = link_to 'Vegetarian', filtered_products_path(vegetarian: 'vegetarian')
+          = link_to 'Non-Vegetarian', filtered_products_path(vegetarian: 'non-vegetarian')
 
-        %div{:class => "dropdown-content", :id => "dropdown-vegetarian"}
-          %a{:href => "#"}Vegetarian
-          %a{:href => "#"}Non-Vegetarian
+    .price-range-container
+      %p.price-range-item.price PRICE
 
-    %div{:class => "price-range-container"}
-      %p{:class => "price-range-item price"}PRICE
+      %p.price-range-item.price#min-slider 15$
 
-      %p{:class => "price-range-item price", :id => "min-slider"}15$
+      #uislider
 
-      %div{:id => "uislider"}
+      %p.price-range-item.price#max-slider 100$
 
-      %p{:class => "price-range-item price", :id => "max-slider"}100$
-
-  %div{:class => "food-items-container"}
-    %div{:class => "border-wrapper"}
+  .food-items-container
+    .border-wrapper
       - @products.each do |product|
-        %div{:class => "food-item"}
-          %img{:class => "food-image", :src => product.image.url}
+        .food-item
+          %img.food-image{:src => product.image.url}
 
-          %p{:class => "food-name"}=product.name
+          %p.food-name=product.name
 
-          %p{:class => "food-category"}=product.category
+          %p.food-category=product.category
 
-          %p{:class => "food-price"}="$#{number_with_precision(product.price, precision: 2)}"
+          %p.food-price="$#{number_with_precision(product.price, precision: 2)}"

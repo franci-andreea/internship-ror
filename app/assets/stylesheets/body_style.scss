@@ -1,8 +1,4 @@
-$white: #f0f8ff;
-$dropdown_white: #f1f1f1;
-$dropdown_hover_white: #dddddd;
-$light_gray: #c5c3c2;
-$light_brown: #c78a54;
+@import './colours.scss';
 
 .body-margin {
     margin: 0;
@@ -80,6 +76,14 @@ $light_brown: #c78a54;
 
 .price-range-item {
     padding: 4px;
+}
+
+#min-slider {
+    margin-right: 16px;
+}
+
+#max-slider {
+    margin-left: 16px;
 }
 
 .food-items-container {

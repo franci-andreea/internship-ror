@@ -1,22 +1,22 @@
 %footer
-  %div{:class => "footer-container"}
-    %div{:class => "contacts-container"}
-      %div{:class => "pair", :id => "facebook"}
+  .footer-container
+    .contacts-container
+      .pair#facebook
         %a{:href => "https://www.facebook.com/"}
           %img.social-media-icon{:src => "#{image_path('facebook-icon.png')}"}
-        %p{:class => "social-media"}facebook contact
+        %p.social-media facebook contact
 
 
-      %div{:class => "pair", :id => "instagram"}
+      .pair#instagram
         %a{:href => "https://www.instagram.com/"}
           %img.social-media-icon{:src => "#{image_path('insta-icon.png')}"}
-        %p{:class => "social-media"}instagram contact
+        %p.social-media instagram contact
 
 
-      %div{:class => "pair", :id => "mail"}
+      .pair#mail
         %a{:href => "https://www.gmail.com/"}
           %img.social-media-icon{:src => "#{image_path('mail-icon.png')}"}
-        %p{:class => "social-media"}contact@office.com
+        %p.social-media contact@office.com
 
-    %div{:class => "credits-container"}
-      %p{:class => "credits-text"}© To the people that took those photos
+    .credits-container
+      %p.credits-text © To the people that took those photos

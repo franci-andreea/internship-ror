@@ -1,5 +1,4 @@
-$white: #f0f8ff;
-$light_brown: #c78a54; 
+@import './colours.scss';
 
 header {
     min-height: 100px;
@@ -12,7 +11,7 @@ header::before {
     width: 100%;
     height: 100%;
     content: "";
-    background-image: image-url('restaurant-background3.jpg');
+    background-image: image_url('restaurant-background3.jpg');
     background-size: cover;
     display: block;
     z-index: -1;
@@ -48,7 +47,7 @@ header::before {
     margin-top: 48px;
 }
 
-#dot {
+.dot {
     color:#EFB37F;
 }
 

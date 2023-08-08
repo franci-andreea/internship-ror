@@ -1,3 +1,5 @@
+@import './colours.scss';
+
 @font-face {
     font-family: Oswald;
     src:url(https://fonts.google.com/specimen/Oswald);
@@ -23,21 +25,21 @@ $font-weights: (
 #logo-text {
     font-family: $oswald-font;
     font-weight: map-get($font-weights, _bold);
-    color: aliceblue;
+    color: $white;
 }
 
-#navbar-item {
+.navbar-item {
     font-family: $roboto-font;
     font-weight: map-get($font-weights, _normal);
     font-stretch: semi-expanded;
-    color: aliceblue;
+    color: $white;
 }
 
 #main-message {
     font-family: $oswald-font;
     font-weight: map-get($font-weights, _light-bold);
     font-stretch: semi-expanded;
-    color: aliceblue;
+    color: $white;
 }
 
 #slogan {
@@ -46,7 +48,7 @@ $font-weights: (
     font-stretch: normal;
     font-size: 24px;
     text-align: center;
-    color: aliceblue;
+    color: $white;
 }
 
 .drop-button {
@@ -54,7 +56,7 @@ $font-weights: (
     font-weight: map-get($font-weights, _normal);
     font-stretch: expanded;
     font-size: 18px;
-    color: aliceblue;
+    color: $white;
 }
 
 .dropdown-content {
@@ -70,7 +72,7 @@ $font-weights: (
     font-weight: map-get($font-weights, _normal);
     font-stretch: expanded;
     font-size: 18px;
-    color: aliceblue;
+    color: $white;
 }
 
 .food-name {
@@ -85,7 +87,7 @@ $font-weights: (
     font-weight: map-get($font-weights, _lighter);
     font-stretch: semi-expanded;
     font-size: 20px;
-    color: grey;
+    color: $grey;
 }
 
 .food-price {
@@ -93,19 +95,19 @@ $font-weights: (
     font-weight: map-get($font-weights, _bolder);
     font-stretch: expanded;
     font-size: x-large;
-    color: red;
+    color: $red;
 }
 
 .social-media {
     font-family: $oswald-font;
     font-weight: map-get($font-weights, _light_bold);
     font-stretch: normal;
-    color: aliceblue;
+    color: $white;
 }
 
 .credits-text {
     font-family: $roboto-font;
     font-weight: map-get($font-weights, _lighter);
     font-stretch: semi-expanded;
-    color: aliceblue;
+    color: $white;
 }
