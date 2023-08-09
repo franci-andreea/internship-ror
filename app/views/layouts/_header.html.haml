@@ -34,7 +34,13 @@
           %li.navbar.dot •
           
           %li.navbar.navbar-item
-            = link_to "LOG OUT", logout_path, method: :delete  
+            = link_to "LOG OUT", logout_path, method: :delete
+        - else
+          %li.navbar.dot •
+
+          %li.navbar.navbar-item
+            = link_to "LOGIN", login_path 
+
 
   .main-message
     %h1#main-message Ordering food
