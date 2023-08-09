@@ -1,7 +1,7 @@
 .body-container
   .filters-container 
     .dropdown-menus-container
-      .dropdown-menu#dropdown-category
+      .dropdown-menu-display#dropdown-category
         %button.drop-button CATEGORY
 
         .dropdown-content
@@ -9,7 +9,7 @@
           = link_to 'Second Courses', filtered_products_path(category: 'second-course')
           = link_to 'Desserts', filtered_products_path(category: 'dessert')
 
-      .dropdown-menu#dropdown-sorting
+      .dropdown-menu-display#dropdown-sorting
         %button.drop-button SORTING
 
         .dropdown-content
@@ -19,7 +19,7 @@
           = link_to 'Descending Price', sorted_products_path(order: 'descending')
           
 
-      .dropdown-menu#dropdown-vegetarian
+      .dropdown-menu-display#dropdown-vegetarian
         %button.drop-button VEGETARIAN
 
         .dropdown-content

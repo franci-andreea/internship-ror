@@ -1,3 +1,5 @@
+@import './colours.scss';
+
 /*
     noUiSlider customization
 */
@@ -18,16 +20,17 @@
 }
 
 .noUi-connect {
-  background-color: #77461E;
+  background-color: $connect_line;
 }
 
-.noUi-handle:after, .noUi-handle:before {
+.noUi-handle:after,
+.noUi-handle:before {
   content: "";
   display: block;
   position: absolute;
   height: 10px;
   width: 1px;
-  background: #A26836;
+  background: $slider_square_line;
   left: 8px;
   top: 3px;
 }
