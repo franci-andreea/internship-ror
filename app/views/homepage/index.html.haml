@@ -1,16 +1,20 @@
+= render 'homepage/header'
 .body-container
-  .filters-container 
+  .filters-container
     .dropdown-menus-container
       .dropdown-menu-display#dropdown-category
         %button.drop-button CATEGORY
+        %img.dropdown-arrow{:src => image_path('dropdown-arrow.png')} 
 
         .dropdown-content
-          = link_to 'Entrees', filtered_products_path(category: 'entree')
-          = link_to 'Second Courses', filtered_products_path(category: 'second-course')
-          = link_to 'Desserts', filtered_products_path(category: 'dessert')
+          -# = f.hidden_field :category
+          = link_to 'Entrées'
+          = link_to 'Second Course'
+          = link_to 'Desserts'
 
       .dropdown-menu-display#dropdown-sorting
         %button.drop-button SORTING
+        %img.dropdown-arrow{:src => image_path('dropdown-arrow.png')}
 
         .dropdown-content
           = link_to 'A to Z', sorted_products_path(order: 'az')
@@ -18,9 +22,9 @@
           = link_to 'Ascending Price', sorted_products_path(order: 'ascending')
           = link_to 'Descending Price', sorted_products_path(order: 'descending')
           
-
       .dropdown-menu-display#dropdown-vegetarian
         %button.drop-button VEGETARIAN
+        %img.dropdown-arrow{:src => image_path('dropdown-arrow.png')} 
 
         .dropdown-content
           = link_to 'Vegetarian', filtered_products_path(vegetarian: 'vegetarian')
@@ -29,11 +33,15 @@
     .price-range-container
       %p.price-range-item.price PRICE
 
-      %p.price-range-item.price#min-slider 15$
+      %p.price-range-item.price#min-slider
+      -# = f.hidden_field :min_price 
 
       #uislider
 
-      %p.price-range-item.price#max-slider 100$
+      %p.price-range-item.price#max-slider
+      -# = f.hidden_field :max_price
+
+    %button.apply-filters-button APPLY FILTERS
 
   .food-items-container
     .border-wrapper
@@ -43,6 +51,14 @@
 
           %p.food-name=product.name
 
-          %p.food-category=product.category
+          - if product.category == "no_category"
+            %p.food-category Others
+          - elsif product.category == "entree"
+            %p.food-category Entrée
+          - elsif product.category == "second_course"
+            %p.food-category Second Course
+          - elsif product.category == "dessert"
+            %p.food-category Dessert
 
           %p.food-price="$#{number_with_precision(product.price, precision: 2)}"
+= render 'homepage/footer'

@@ -2,24 +2,24 @@
 
 @font-face {
     font-family: Oswald;
-    src:url(https://fonts.google.com/specimen/Oswald);
+    src: url(https://fonts.google.com/specimen/Oswald);
 }
 
 @font-face {
     font-family: Roboto;
-    src:url(https://fonts.google.com/specimen/Roboto);
+    src: url(https://fonts.google.com/specimen/Roboto);
 }
 
 $oswald-font: Oswald;
 $roboto-font: Roboto;
 
 $font-weights: (
-   "_lighter": 200,
-   "_light": 300,
-   "_normal": 400,
-   "_light-bold": 600,
-   "_bold": 700,
-   "_bolder": 800 
+    "_lighter": 200,
+    "_light": 300,
+    "_normal": 400,
+    "_light-bold": 600,
+    "_bold": 700,
+    "_bolder": 800
 );
 
 #logo-text {
@@ -35,7 +35,7 @@ $font-weights: (
     color: $white;
 }
 
-#main-message {
+.main-message-text {
     font-family: $oswald-font;
     font-weight: map-get($font-weights, _light-bold);
     font-stretch: semi-expanded;
@@ -102,6 +102,7 @@ $font-weights: (
     font-family: $oswald-font;
     font-weight: map-get($font-weights, _light_bold);
     font-stretch: normal;
+    font-size: 18px;
     color: $white;
 }
 
@@ -109,5 +110,19 @@ $font-weights: (
     font-family: $roboto-font;
     font-weight: map-get($font-weights, _lighter);
     font-stretch: semi-expanded;
+    color: $white;
+}
+
+.apply-filters-button {
+    font-family: $oswald-font;
+    font-weight: map-get($font-weights, _light-bold);
+    font-stretch: normal;
+    font-size: 18px;
+}
+
+.login-form-container {
+    font-family: $roboto-font;
+    font-weight: map-get($font-weights, _light-bold);
+    font-size: 18px;
     color: $white;
 }

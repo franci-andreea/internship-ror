@@ -7,6 +7,7 @@ class UsersController < ApplicationController
   end
 
   def new
+    @signup = true
     @user = User.new
   end
 

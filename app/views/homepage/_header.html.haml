@@ -41,13 +41,13 @@
           %li.navbar.navbar-item
             = link_to "LOGIN", login_path 
 
+  - if @homepage && !@signup && !@login
+    .main-message
+      %h1.main-message-text Ordering food
 
-  .main-message
-    %h1#main-message Ordering food
+      %hr.white-line
 
-    %hr.white-line
+      %p#slogan Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
 
-    %p#slogan Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-
-    %br
-    %br
+      %br
+      %br
