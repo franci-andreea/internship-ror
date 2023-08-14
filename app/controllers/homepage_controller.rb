@@ -16,7 +16,7 @@ class HomepageController < ApplicationController
         @products = @products.order(price: :desc)
       end
     end
-    @products = @products.where(vegetarian: params[:vegetarian] == 'vegetarian') if params[:vegetarian].present? && params[:vegetarian] != 'none'
+    @products = @products.where(vegetarian: (params[:vegetarian_select] == 'vegetarian')) if params[:vegetarian_select].present? && params[:vegetarian_select] != 'none'
  
     @products = @products.where("price >= ? AND price <= ?", params[:min_price].to_i, params[:max_price].to_i) if params[:min_price].present? && params[:max_price].present?
   end

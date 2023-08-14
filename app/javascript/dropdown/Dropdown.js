@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
   var category = document.getElementById("category");
   var sorting = document.getElementById("sorting");
-  var vegetarian = document.getElementById("vegetarian");
+  var vegetarian_select = document.getElementById("vegetarian_select");
 
   //CATEGORY
   var categoryEntree = document.getElementById("entree");
@@ -67,7 +67,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
   vegetarian.addEventListener(
     'click',
     (event) => {
-      vegetarian.value = vegetarian.getAttribute("value");
+      vegetarian_select.value = vegetarian.getAttribute("value");
+      console.log(vegetarian.value)
     }
   );
 
@@ -75,7 +76,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
   non_vegetarian.addEventListener(
     'click',
     (event) => {
-      vegetarian.value = non_vegetarian.getAttribute("value");
+      vegetarian_select.value = non_vegetarian.getAttribute("value");
+      console.log(vegetarian.value)
     }
   );
 });
