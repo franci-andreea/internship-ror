@@ -59,7 +59,7 @@ $font-weights: (
     color: $white;
 }
 
-.dropdown-content {
+.dropdown-content .profile-drop-content {
     font-family: $oswald-font;
     font-weight: map-get($font-weights, _light);
     font-stretch: expanded;
@@ -149,5 +149,12 @@ $font-weights: (
 .email-field {
     font-family: $roboto-font;
     font-size: 24px;
+    color: $white;
+}
+
+.profile-drop-button {
+    font-family: $roboto-font;
+    font-weight: map-get($font-weights, _normal);
+    font-stretch: semi-expanded;
     color: $white;
 }

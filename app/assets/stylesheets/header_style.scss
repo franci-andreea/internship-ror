@@ -1,10 +1,14 @@
 @import './colours.scss';
 
+// * {
+//     border: 1px solid red;
+// }
+
 header {
     min-height: 100px;
     z-index: 0;
 }
-  
+
 header::before {
     filter: contrast(80%);
     position: absolute;
@@ -34,7 +38,6 @@ header::before {
 }
 
 .navbar {
-    display: inline;
     list-style: none;
     padding: 24px;
 }
@@ -48,7 +51,7 @@ header::before {
 }
 
 .dot {
-    color:#EFB37F;
+    color: #EFB37F;
 }
 
 .main-message {
@@ -75,4 +78,43 @@ a {
 
 a:hover {
     color: $light_brown;
+}
+
+.profile-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.profile-drop-button {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    background-color: transparent;
+    border: transparent;
+}
+
+.profile-drop-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: $white;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.profile-drop-content a {
+    color: black;
+    padding: 12px 16px;
+    display: block;
+}
+
+.profile-drop-content a:hover {
+    background-color: $light_gray;
+}
+
+.profile-dropdown:hover .profile-drop-content {
+    display: block;
 }
