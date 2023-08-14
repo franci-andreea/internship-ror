@@ -1,19 +1,23 @@
 class HomepageController < ApplicationController
-
   def index
     @homepage = true
     
     @products = Product.all
 
-    @products = @products.where(category: params[:category]) if params[:category].present?
-
-    @products = @products.order(:name) if params[:order] == 'az' if params[:order].present?
-    @products = @products.order(name: :desc) if params[:order] == 'za' if params[:order].present?
-    @products = @products.order(:price) if params[:order] == 'ascending' if params[:order].present?
-    @products = @products.order(price: :desc) if params[:order] == 'descending' if params[:order].present?
-
-    @products = @products.where(vegetarian: params[:vegetarian] == 'vegetarian') if params[:vegetarian].present?
-
-    # @products = @products.where(price: params[:min_price]..params[:max_price]) if params[:min_price].present? && params[:max_price].present?
+    @products = @products.where("category = ?", Product.categories[params[:category]]) if params[:category].present? && params[:category] != 'none'
+    if params[:sorting].present? && params[:sorting] != 'none'
+      if params[:sorting] == 'az'
+        @products = @products.order(:name)
+      elsif params[:sorting] == 'za'
+        @products = @products.order(name: :desc)
+      elsif params[:sorting] == 'ascending-price'
+        @products = @products.order(:price)
+      elsif params[:sorting] == 'descending-price'
+        @products = @products.order(price: :desc)
+      end
+    end
+    @products = @products.where(vegetarian: params[:vegetarian] == 'vegetarian') if params[:vegetarian].present? && params[:vegetarian] != 'none'
+ 
+    @products = @products.where("price >= ? AND price <= ?", params[:min_price].to_i, params[:max_price].to_i) if params[:min_price].present? && params[:max_price].present?
   end
 end

@@ -120,6 +120,13 @@ $font-weights: (
     font-size: 18px;
 }
 
+.reset-filters-link {
+    font-family: $oswald-font;
+    font-weight: map-get($font-weights, _light-bold);
+    font-stretch: normal;
+    font-size: 18px;
+}
+
 .login-form-container {
     font-family: $roboto-font;
     font-weight: map-get($font-weights, _light-bold);

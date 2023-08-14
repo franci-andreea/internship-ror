@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
   get 'sessions/new'
 
-  get 'homepage', to:"homepage#index", as: :filtered_products
-  get 'homepage/sort/:order', to:"homepage#index", as: :sorted_products
-  get '/homepage', to: "homepage#index", as: :request
+  get 'homepage', to:"homepage#index"
+  get '/filter', to:"homepage#index"
 
   get '/signup', to: 'users#new'
   get '/login', to: 'sessions#new'

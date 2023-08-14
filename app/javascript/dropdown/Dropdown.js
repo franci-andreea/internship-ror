@@ -1,45 +1,81 @@
-/* When the user clicks on the button, 
-toggle between hiding and showing the dropdown content */
 document.addEventListener("DOMContentLoaded", (event) => {
 
-  const category = document.getElementById("dropdown-category");
-  category.addEventListener(
+  var category = document.getElementById("category");
+  var sorting = document.getElementById("sorting");
+  var vegetarian = document.getElementById("vegetarian");
+
+  //CATEGORY
+  var categoryEntree = document.getElementById("entree");
+  categoryEntree.addEventListener(
     'click',
     (event) => {
-      category.getElementsByClassName('dropdown-content')[0].classList.toggle("show");
+      category.value = categoryEntree.getAttribute("value");
     }
   );
 
-  const sorting = document.getElementById("dropdown-sorting")
-  sorting.addEventListener(
+  var categorySecondCourse = document.getElementById("second-course");
+  categorySecondCourse.addEventListener(
     'click',
     (event) => {
-      sorting.getElementsByClassName('dropdown-content')[0].classList.toggle("show");
+      category.value = categorySecondCourse.getAttribute("value");
     }
   );
 
-  const vegetarian = document.getElementById("dropdown-vegetarian")
+  var categoryDessert = document.getElementById("dessert");
+  categoryDessert.addEventListener(
+    'click',
+    (event) => {
+      category.value = categoryDessert.getAttribute("value");
+    }
+  );
+
+  // SORTING
+  var az_sorting = document.getElementById("az");
+  az_sorting.addEventListener(
+    'click',
+    (event) => {
+      sorting.value = az_sorting.getAttribute("value");
+    }
+  );
+
+  var za_sorting = document.getElementById("za");
+  za_sorting.addEventListener(
+    'click',
+    (event) => {
+      sorting.value = za_sorting.getAttribute("value");
+    }
+  );
+
+  var ascending_price = document.getElementById("ascending-price");
+  ascending_price.addEventListener(
+    'click',
+    (event) => {
+      sorting.value = ascending_price.getAttribute("value");
+    }
+  );
+
+  var descending_price = document.getElementById("descending-price");
+  descending_price.addEventListener(
+    'click',
+    (event) => {
+      sorting.value = descending_price.getAttribute("value");
+    }
+  );
+
+  // VEGETARIAN
+  var vegetarian = document.getElementById("vegetarian");
   vegetarian.addEventListener(
     'click',
     (event) => {
-      vegetarian.getElementsByClassName('dropdown-content')[0].classList.toggle("show");
+      vegetarian.value = vegetarian.getAttribute("value");
     }
   );
 
-  // Close the dropdown if the user clicks outside of it
-  window.addEventListener(
+  var non_vegetarian = document.getElementById("non-vegetarian");
+  non_vegetarian.addEventListener(
     'click',
     (event) => {
-      if (!event.target.matches(".drop-button")) {
-        var dropdowns = document.getElementsByClassName("dropdown-content");
-
-        for (let i = 0; i < dropdowns.length; i++) {
-          var openDropdown = dropdowns[i];
-          if (openDropdown.classList.contains("show")) {
-            openDropdown.classList.toggle("show");
-          }
-        }
-      }
+      vegetarian.value = non_vegetarian.getAttribute("value");
     }
   );
 });

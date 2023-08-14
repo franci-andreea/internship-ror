@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
     min.textContent = "$" + values[0];
     max.textContent = "$" + values[1];
 
-    min_price = values[0];
-    max_price = values[1];
+    min_price.value = values[0];
+    max_price.value = values[1];
   });
 });

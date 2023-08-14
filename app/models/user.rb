@@ -12,7 +12,7 @@ class User < ApplicationRecord
 
 
   class << self
-    def digest 
+    def digest(string)
       cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST : BCrypt::Engine.cost
 
       BCrypt::Password.create(string, cost: cost)
@@ -21,6 +21,10 @@ class User < ApplicationRecord
     def new_token
       SecureRandom.urlsafe_base64
     end
+  end
+
+  def session_token
+    remember_digest || remember
   end
   
   def remember

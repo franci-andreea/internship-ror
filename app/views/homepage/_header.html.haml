@@ -34,7 +34,7 @@
           %li.navbar.dot •
           
           %li.navbar.navbar-item
-            = link_to "LOG OUT", logout_path, method: :delete
+            = link_to "LOG OUT #{@current_user.name.upcase}", logout_path, method: :delete
         - else
           %li.navbar.dot •
 
