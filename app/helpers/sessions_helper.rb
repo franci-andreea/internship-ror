@@ -5,13 +5,13 @@ module SessionsHelper
 
   def current_user
     if user_id = session[:user_id]
-      if @current_user.nil?
-        @current_user = User.find_by(id: session[:user_id])
-      else
-        @current_user
-      end
+      return @current_user if @current_user.present?
+
+      # if there is no current user instance
+      @current_user = User.find_by(id: session[:user_id])
+
     elsif user_id = cookies.encrypted[:user_id]
-      user = User.find_by(id: user_id)
+      user = User.find(id: user_id)
       if user && user.autehnticated?(cookies[:remember_token])
         login user
         @current_user = user
@@ -20,7 +20,7 @@ module SessionsHelper
   end
 
   def logged_in?
-    !current_user.nil?
+    current_user.present?
   end
 
   def forget(user)

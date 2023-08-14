@@ -1,10 +1,16 @@
-= render 'homepage/header'
-%body  
-  %h1
-    = gravatar_for @user
-    = @user.name
-  %h3
-    Email: @user.email
+= # user profile's page
 
-  %button Edit
-= render 'homepage/footer'
+= render 'homepage/header'
+%body
+  .info-container
+    %h1.first-name
+      = gravatar_for @user
+      = @user.name
+    .details-container
+      .email-field
+        Email: 
+        = @user.email
+
+    .buttons-container
+      %button.edit-button EDIT
+      %button.edit-button DELETE

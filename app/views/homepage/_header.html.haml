@@ -1,8 +1,9 @@
 %header
   .logo-navbar
-    .logo
-      %img.logo-icon{:src => "#{image_path('logo.png')}"}
-      %figcaption#logo-text EUREKA CAFFE
+    = link_to root_path do
+      .logo
+        %img.logo-icon{:src => "#{image_path('logo.png')}"}
+        %figcaption#logo-text EUREKA CAFFE
 
     #navbar
       %ul.navbar

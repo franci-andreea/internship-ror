@@ -120,6 +120,13 @@ $font-weights: (
     font-size: 18px;
 }
 
+.edit-button {
+    font-family: $oswald-font;
+    font-weight: map-get($font-weights, _light-bold);
+    font-stretch: normal;
+    font-size: 18px;
+}
+
 .reset-filters-link {
     font-family: $oswald-font;
     font-weight: map-get($font-weights, _light-bold);
@@ -131,5 +138,16 @@ $font-weights: (
     font-family: $roboto-font;
     font-weight: map-get($font-weights, _light-bold);
     font-size: 18px;
+    color: $white;
+}
+
+.first-name {
+    font-family: $roboto-font;
+    color: $white;
+}
+
+.email-field {
+    font-family: $roboto-font;
+    font-size: 24px;
     color: $white;
 }

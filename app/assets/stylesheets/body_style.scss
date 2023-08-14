@@ -55,7 +55,6 @@
     position: absolute;
     background-color: $dropdown_white;
     min-width: 160px;
-    // overflow: auto;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
 }
@@ -75,10 +74,6 @@
 .dropdown-menu-display:hover .dropdown-content {
     display: block;
 }
-
-// .show {
-//     display: block;
-// }
 
 .price-range-container {
     display: flex;
@@ -158,29 +153,15 @@
     }
 }
 
-/* login */
+.add-to-cart-button {
+    border: 1px;
+    border-radius: 4px;
+    color: $brown;
+    background-color: transparent;
 
-.login-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 8rem;
-}
-
-.login-form-container {
-    padding-left: 10px;
-    padding-right: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.form-container {
-    padding-left: 10px;
-    padding-right: 10px;
-}
-
-.form-element {
-    padding: 8px;
+    &:hover {
+        border: 2px solid;
+        border-radius: 4px;
+        border-color: $brown;
+    }
 }
