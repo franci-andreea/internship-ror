@@ -66,7 +66,7 @@
 
           %p.food-price="$#{number_with_precision(product.price, precision: 2)}"
 
-          - if @current_user.present?
+          - if logged_in?
             %button.add-to-cart-button
               %img.cart-icon{:src => image_path('cart-icon.png')}
 
