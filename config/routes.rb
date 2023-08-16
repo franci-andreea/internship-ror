@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get '/homepage', to: "homepage#index"
   get '/filter', to: "homepage#index"
 
-  get '/homepage/admin', to: "admin#index"
+  get '/admin', to: "admin#index"
 
   get '/signup', to: 'users#new'
   get '/login', to: 'sessions#new'
@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
 
   resources :users
+  resources :orders
+  resources :products
 
   # Defines the root path route ("/")
   root "homepage#index"
