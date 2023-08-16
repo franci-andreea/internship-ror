@@ -41,10 +41,9 @@
               %img.user-profile-icon{:src => "#{image_path('user-icon.png')}"}
             .profile-drop-content
               = link_to 'My profile', user_path(@current_user)
-              = link_to 'Log Out', logout_path 
+              = link_to 'My Orders', root_path #to be changed after orders are implemented
+              = link_to 'Log Out', logout_path
           
-          -# %li.navbar.navbar-item
-          -#   = link_to "LOG OUT #{@current_user.name.upcase}", logout_path, method: :delete
         - else
           %li.navbar.dot •
 
