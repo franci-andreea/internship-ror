@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   attr_accessor :remember_token
 
+  has_many :orders, dependent: :delete
+
   enum role: {
     user: 0,
     admin: 1
