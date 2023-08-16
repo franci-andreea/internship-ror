@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   attr_accessor :remember_token
 
-  has_many :orders, dependent: :delete
+  has_many :orders, dependent: :delete_all
 
   enum role: {
     user: 0,
