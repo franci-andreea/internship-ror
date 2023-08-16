@@ -6,6 +6,6 @@ module UsersHelper
   end
 
   def isAdmin?(user)
-    return (user.role == 1)
+    return (User.roles[user.role] == 1)
   end
 end

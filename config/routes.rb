@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
   get 'sessions/new'
 
-  get 'homepage', to:"homepage#index"
-  get '/filter', to:"homepage#index"
+  get '/homepage', to: "homepage#index"
+  get '/filter', to: "homepage#index"
+
+  get '/homepage/admin', to: "admin#index"
 
   get '/signup', to: 'users#new'
   get '/login', to: 'sessions#new'
