@@ -1,6 +1,5 @@
 class User < ApplicationRecord
   attr_accessor :remember_token
-
   has_many :orders, dependent: :delete_all
 
   enum role: {
@@ -16,7 +15,6 @@ class User < ApplicationRecord
                     uniqueness: { case_sensitive: false }
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }
-
 
   class << self
     def digest(string)
@@ -47,5 +45,4 @@ class User < ApplicationRecord
   def forget
     update_attribute(:remember_digest, nil)
   end
-
 end
