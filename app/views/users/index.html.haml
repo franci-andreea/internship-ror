@@ -1,0 +1,3 @@
+- if logged_in? && isAdmin?(@current_user)
+  = render 'admin/navbar'
+  - @products.each do |product|
