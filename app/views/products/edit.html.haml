@@ -1,13 +1,15 @@
-%h1 Edit product page
-= form_with(url: product_path(@product.id), method: :patch, html: {class: "p-4"}) do |form|
-  .form-group
-    = form.label :name
-    = form.text_field :name, class: "form-control", value: "#{@product.name}"
-  .form-group
-    = form.label :price
-    = form.text_field :price, class: "form-control", value: "#{number_with_precision(@product.price, precision: 2)}"
-  .form-group
-    = form.label :description
-    = form.text_area :description, class: "form-control", value: "#{@product.description}"
+- if logged_in? && isAdmin?(@current_user)
+  = render 'admin/navbar'
+  %h1 Edit product page
+  = form_with(url: product_path(@product.id), method: :patch, html: {class: "p-4"}) do |form|
+    .form-group
+      = form.label :name
+      = form.text_field :name, class: "form-control", value: "#{@product.name}"
+    .form-group
+      = form.label :price
+      = form.text_field :price, class: "form-control", value: "#{number_with_precision(@product.price, precision: 2)}"
+    .form-group
+      = form.label :description
+      = form.text_area :description, class: "form-control", value: "#{@product.description}"
 
-  = form.submit "Edit product", class: "btn btn-primary mt-3"
+    = form.submit "Edit product", class: "btn btn-primary mt-3"

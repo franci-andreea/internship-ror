@@ -3,6 +3,21 @@ class ProductsController < ApplicationController
     @products = Product.all
   end
 
+  def new
+    @categories = Product.categories.keys
+    @product = Product.new
+  end
+
+  def create
+    @product = Product.new(product_params)
+    if @product.save
+      flash[:success] = "Successfully created the product #{@product.name}!"
+      redirect_to products_path
+    else
+      render 'new'
+    end
+  end
+
   def edit
     @product = Product.find(params[:id])
   end

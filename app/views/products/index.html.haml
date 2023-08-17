@@ -1,7 +1,7 @@
 - if logged_in? && isAdmin?(@current_user)
   = render 'admin/navbar'
   .p-4
-    %button.btn.btn-warning New product
+    = link_to "New product", new_product_path, class: "btn btn-warning"
     %select.form-select{"aria-label" => "Default select example"}
       %option{:selected => "Filter by category"}
     %ul.list-group.p-4

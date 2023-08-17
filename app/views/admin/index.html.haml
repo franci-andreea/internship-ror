@@ -3,4 +3,5 @@
   .d-flex.p-2
     %h1 ADMIN PAGE
 - else
-  = controller.redirect_to root_url
+  :javascript
+    window.location.href="/"

@@ -15,6 +15,8 @@
           %button.edit-button EDIT
           %button.edit-button DELETE
     - else
-      = controller.redirect_to root_url
+      :javascript
+        window.location.href="/"
   - else
-    = controller.redirect_to '/admin'
+    :javascript
+      window.location.href="/"
