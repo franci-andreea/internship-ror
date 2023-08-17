@@ -63,10 +63,7 @@ pizza_california = Product.create(
 pizza_california.image.attach(io: File.open(Rails.root.join('db/images/california-pizza.png')), filename: 'california-pizza.png')
 puts("PIZZA CALIFORNIA CREATED AND SUCCESSFULLY ADDED TO THE DATABASE, YAY!")
 
-# delete the admin for restarting the application
 User.where(role: 1).delete_all
-
-# add one admin to the database
 admin = User.create(
   name: "Admin Franci",
   email: "franci@admin.com",
