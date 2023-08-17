@@ -7,7 +7,7 @@
     %ul.list-group.p-4
     - @products.each do |product|
       %li.list-group-item.border.border-secondary.rounded.p-3.d-flex.flex-column
-        %img.rounded.float-left.img-product{:src => product.image.url}
+        = cl_image_tag(product.image.url, class: "float-left img-product")
         = product.name
         = product.category
 

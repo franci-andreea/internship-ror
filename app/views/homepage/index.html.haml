@@ -51,7 +51,7 @@
     .border-wrapper
       - @products.each do |product|
         .food-item
-          %img.food-image{:src => product.image.url}
+          = cl_image_tag(product.image.url, class: "food-image")
 
           %p.food-name=product.name
 

@@ -17,7 +17,6 @@ pasta_al_dente = Product.create(
   category: 2
 )
 pasta_al_dente.image.attach(io: File.open(Rails.root.join('db/images/pasta-al-dente.png')), filename: 'pasta-al-dente.png')
-# pasta_al_dente.image.attach(io: Cloudinary::Uploader.upload('pasta-al-dente.png', :public_id => "pasta-al-dente"), filename: 'pasta-al-dente.png')
 
 puts("PASTA AL DENTE CREATED AND SUCCESSFULLY ADDED TO THE DATABASE, YAY!")
 
@@ -53,12 +52,22 @@ crepes_with_nutella = Product.create(
 crepes_with_nutella.image.attach(io: File.open(Rails.root.join('db/images/crepes-with-nutella.png')), filename: 'crepes-with-nutella.png')
 puts("CREPES WITH NUTELLA CREATED AND SUCCESSFULLY ADDED TO THE DATABASE, YAY!")
 
+
+# resource_type = "image"
+# type = "upload"
+# version = "v1_1"
+# public_id = "0kytrnmlvraet2jp3hlfdyk4zv86"
+# format = "png"
+# signature = Cloudinary::Utils.api_sign_request({:public_id=>public_id}, Cloudinary.config.api_secret)
+# pizza_california_image = "#{resource_type}/#{type}/v#{version}/#{public_id}.#{format}##{signature}"
+
 pizza_california = Product.create(
   name: 'Pizza California',
   description: "Description for Pizza California",
   price: 12.70,
   vegetarian: false,
-  category: 2
+  category: 2,
+  # image: pizza_california_image
 )
 pizza_california.image.attach(io: File.open(Rails.root.join('db/images/california-pizza.png')), filename: 'california-pizza.png')
 puts("PIZZA CALIFORNIA CREATED AND SUCCESSFULLY ADDED TO THE DATABASE, YAY!")
