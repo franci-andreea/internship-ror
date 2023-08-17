@@ -1,0 +1,16 @@
+- if logged_in? && isAdmin?(@current_user)
+  = render 'admin/navbar'
+  .p-4
+    %button.btn.btn-warning New product
+    %select.form-select{"aria-label" => "Default select example"}
+      %option{:selected => "Filter by category"}
+    %ul.list-group.p-4
+    - @products.each do |product|
+      %li.list-group-item.border.border-secondary.rounded.p-3.d-flex.flex-column
+        %img.rounded.float-left.img-product{:src => product.image.url}
+        = product.name
+        = product.category
+
+        = button_to "Edit",  .btn.btn-primary Edit
+        %button.btn.btn-danger Delete
+
