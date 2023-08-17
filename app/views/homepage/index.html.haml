@@ -52,6 +52,7 @@
       - @products.each do |product|
         .food-item
           %img.food-image{:src => product.image.url}
+          -# = cl_image_tag(product.image.public_id), class: "food-image"
 
           %p.food-name=product.name
 
