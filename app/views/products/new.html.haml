@@ -14,6 +14,8 @@
     .form-group
       = form.label :description
       = form.text_area :description, class: "form-control", placeholder: "Write a description for your product"
+    .form-group
+      = form.file_field :image
 
     = form.submit "Create product", class: "btn btn-primary mt-3"
 
