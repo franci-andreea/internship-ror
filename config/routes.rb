@@ -12,9 +12,9 @@ Rails.application.routes.draw do
   get 'logout', to: 'sessions#destroy'
   delete '/logout', to: 'sessions#destroy'
 
-  resources :users
   resources :orders
   resources :products
+  resources :users
 
   # Defines the root path route ("/")
   root "homepage#index"

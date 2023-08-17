@@ -4,8 +4,18 @@ class ProductsController < ApplicationController
   end
 
   def edit
-    puts "params[:id] = #{params[:id]}"
     @product = Product.find(params[:id])
+  end
+
+  def update
+    product = Product.find(params[:id])
+    if product.update(name: params[:name], price: params[:price].to_f, description: params[:description])
+      flash[:success] = "Product updated successfully!"
+      redirect_to edit_product_path
+    else
+      flash[:danger] = "Update failed. Try again!"
+      render 'edit'
+    end
   end
 
   def destroy
@@ -13,4 +23,9 @@ class ProductsController < ApplicationController
     flash[:success] = "Product with #{params[:id]} successfully deleted!"
     redirect_to products_path
   end
+
+  private
+    def product_params
+      params.require(:product).permit(:name, :price, :description)
+    end
 end
