@@ -20,11 +20,12 @@ class ProductsController < ApplicationController
 
   def edit
     @product = Product.find(params[:id])
+    @categories = Product.categories.keys
   end
 
   def update
     product = Product.find(params[:id])
-    if product.update(name: params[:name], price: params[:price].to_f, description: params[:description])
+    if product.update(name: params[:name], price: params[:price].to_f, description: params[:description], vegetarian: params[:vegetarian], image: params[:image])
       flash[:success] = "Product updated successfully!"
       redirect_to edit_product_path
     else

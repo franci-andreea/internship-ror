@@ -6,8 +6,13 @@
     - @products.each do |product|
       %li.list-group-item.border.border-secondary.rounded.p-3.d-flex.flex-column
         = cl_image_tag(product.image.url, class: "float-left img-product")
-        = product.name
-        = product.category
+        %p 
+          = product.name
+        %p 
+          = product.category
+
+        %p 
+          = number_with_precision(product.price, precision: 2)
 
         - if product.vegetarian
           %p.bg-success Vegetarian
