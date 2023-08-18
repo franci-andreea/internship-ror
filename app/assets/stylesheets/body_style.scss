@@ -158,10 +158,24 @@
     border-radius: 4px;
     color: $brown;
     background-color: transparent;
+    margin-left: 12px;;
 
     &:hover {
         border: 2px solid;
         border-radius: 4px;
         border-color: $brown;
     }
+}
+
+.basket-container {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    margin-right: 46px;
+}
+
+.add-to-cart-form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }

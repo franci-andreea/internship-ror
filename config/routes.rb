@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   resources :orders
   resources :products
   resources :users
+  get '/users/:id/my-cart', to: 'users#show_cart', as: 'show_cart'
+  post '/users/:id/add-to-cart/:product_id', to: 'users#add_to_cart', as: 'add_to_cart'
 
   # Defines the root path route ("/")
   root "homepage#index"
