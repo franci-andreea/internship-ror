@@ -2,3 +2,19 @@
   = render 'homepage/header'
   %h1.text-light 
     = @user.name + '\'s orders'
+  %br
+
+  - if @cart.nil?
+    %h2.text-light You currently have nothing stored in the cart
+  - else
+    %ul
+      = @cart.order_products.each do |order_product|
+        %li.list-group-item.border.border-secondary.rounded.p-3.d-flex.flex-column
+          = cl_image_tag(product.image.url, class: "float-left img-product")
+          %p 
+            = product.name
+          %p 
+            = product.category
+          %p 
+            = number_with_precision(product.price, precision: 2)
+

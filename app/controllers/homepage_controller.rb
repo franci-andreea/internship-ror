@@ -1,6 +1,10 @@
 class HomepageController < ApplicationController
   def index
     @homepage = true
+
+    if logged_in?
+      @cart = nil # initialize cart for user
+    end
     
     @products = Product.all
 
@@ -20,4 +24,5 @@ class HomepageController < ApplicationController
  
     @products = @products.where("price >= ? AND price <= ?", params[:min_price].to_i, params[:max_price].to_i) if params[:min_price].present? && params[:max_price].present?
   end
+
 end

@@ -51,6 +51,9 @@
     .basket-container
       = link_to image_tag(image_path('basket-icon'), class: "cart-icon"), show_cart_path(@current_user.id)
       %p View cart
+      - if @notifyCart
+        %p.bg-warning
+          = @cart.order_products.length
   
   .food-items-container
     .border-wrapper
