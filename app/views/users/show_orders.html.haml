@@ -12,6 +12,6 @@
           %p.cart-text Order with ID: #{order.id}
           %p.cart-text Total: #{order.total}
 
-          = button_to "View order details", root_path, class: "btn btn-secondary"
+          = link_to "View order details", show_order_details_path(order_id: order.id), class: "btn btn-secondary"
       
 

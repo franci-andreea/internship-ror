@@ -47,4 +47,13 @@ module UsersHelper
     end
     return quantities
   end
+
+  def get_order_products(order)
+    products = []
+    order.order_products.each do |order_product|
+      products.push(Product.find(order_product.product_id))
+    end
+
+    return products
+  end
 end

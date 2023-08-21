@@ -54,7 +54,14 @@ class UsersController < ApplicationController
 
   def show_orders
     @orders = Order.where("user_id = ?", params[:id])
-    
+  end
+
+  def show_order_details
+    @order = Order.find(params[:order_id])
+
+    @products = get_order_products(@order)
+    @total = compute_cart_total(@order)
+    @quantities = compute_quantities(@order)
   end
 
   private

@@ -23,4 +23,5 @@ module OrdersHelper
     @cart.products.push(product)
     @cart.order_products.last.update_column(:quantity, quantity.to_i)
   end
+  
 end
