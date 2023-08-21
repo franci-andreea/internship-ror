@@ -2,7 +2,7 @@ class OrdersController < ApplicationController
   include OrdersHelper
 
   def index
-    @orders = Order.all
+    @orders = Order.in_order_of(:status, [0, 1])
   end
 
   def add_to_cart
@@ -30,7 +30,7 @@ class OrdersController < ApplicationController
     cart_id = params[:cart_id].to_i
     user_id = params[:user_id].to_i
     total = params[:total].to_i
-    byebug
+
     @new_order = Order.find_by("id = ? AND is_cart = ?", cart_id, true)
 
     if @new_order.update(total: total, is_cart: false)
@@ -55,5 +55,8 @@ class OrdersController < ApplicationController
   end
 
   def update
+  end
+
+  def destroy
   end
 end

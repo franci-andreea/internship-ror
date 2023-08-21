@@ -1,6 +1,6 @@
 class Product < ApplicationRecord
   has_many :order_products
-  has_many :orders, through: :order_products
+  has_many :orders, through: :order_products, dependent: :delete_all
   has_one_attached :image
   
   enum category: {

@@ -53,6 +53,7 @@ class UsersController < ApplicationController
   end
 
   def show_orders
+    @user = User.find(params[:id])
     @orders = Order.where("user_id = ?", params[:id])
   end
 
@@ -62,6 +63,16 @@ class UsersController < ApplicationController
     @products = get_order_products(@order)
     @total = compute_cart_total(@order)
     @quantities = compute_quantities(@order)
+  end
+
+  def make_admin
+    @user = User.find(params[:user_id].to_i)
+
+    if @user.update_attribute(:role, 1)
+      redirect_to users_path
+    else
+      Rails.logger.info(@user.errors.messages.inspect)
+    end
   end
 
   private
