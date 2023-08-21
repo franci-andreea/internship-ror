@@ -3,7 +3,7 @@ class HomepageController < ApplicationController
     @homepage = true
 
     if logged_in?
-      @cart = nil # initialize cart for user
+      @cart = Order.find_by("user_id = ? AND is_cart = ?", @current_user.id, true)
     end
     
     @products = Product.all
