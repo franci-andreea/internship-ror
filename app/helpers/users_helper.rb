@@ -5,8 +5,8 @@ module UsersHelper
     image_tag(gravatar_url, alt: user.name, class: "gravatar")
   end
 
-  def isAdmin?(user)
-    return (User.roles[user.role] == 1)
+  def is_admin?(user)
+    return (user.admin?)
   end
 
   def get_users_products(cart)
@@ -45,6 +45,7 @@ module UsersHelper
       end
       quantities[order_product.product_id] = order_product.quantity
     end
+
     return quantities
   end
 

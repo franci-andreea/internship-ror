@@ -70,8 +70,6 @@ class UsersController < ApplicationController
 
     if @user.update_attribute(:role, 1)
       redirect_to users_path
-    else
-      Rails.logger.info(@user.errors.messages.inspect)
     end
   end
 
@@ -79,5 +77,4 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:name, :email, :password, :password_confirmation)
     end
-    
 end

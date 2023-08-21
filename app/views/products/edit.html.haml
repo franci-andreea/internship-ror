@@ -1,7 +1,7 @@
-- if logged_in? && isAdmin?(@current_user)
+- if logged_in? && is_admin?(@current_user)
   = render 'admin/navbar'
   %h1 Edit product page
-  = form_with(url: product_path(@product.id), method: :patch, html: {class: "p-4"}) do |form|
+  = form_with(url: product_path(@product.id), model: @product, method: :patch, html: {class: "p-4"}) do |form|
     .form-group
       = form.label :name
       = form.text_field :name, class: "form-control", value: "#{@product.name}"

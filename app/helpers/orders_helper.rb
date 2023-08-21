@@ -14,6 +14,7 @@ module OrdersHelper
       if order_product.product_id == product.id
         updated_quantity = order_product.quantity + quantity.to_i
         order_product.update_column(:quantity, updated_quantity)
+        
         return
       end
     end
