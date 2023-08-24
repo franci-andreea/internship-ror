@@ -1,4 +1,5 @@
-class Api::V1::AdminController < ApplicationController
+class Api::V1::AdminController < BaseController
+  
   def index
   end
 end

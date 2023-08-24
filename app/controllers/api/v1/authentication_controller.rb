@@ -1,24 +1,6 @@
-class Api::V1::AuthenticationController < ApplicationController
+class Api::V1::AuthenticationController < Api::V1::BaseController
   before_action :authorize_request, except: :login
   rescue_from ActionController::ParameterMissing, with: :parameter_missing
-
-  def not_found
-    render json: { error: 'not_found'}
-  end
-
-  def authorize_request
-    header = request.headers['Authorization']
-    header = header.split(' ').last if header
-
-    begin
-      @decoded = ApplicationController::JsonWebToken.decode(header)
-      @current_user = User.find(@decoded[:id])
-    rescue ActiveRecord::RecordNotFound => exception
-      render json: { errors: e.message }, status: :unauthorized
-    rescue JWT::DecodeError => exception
-      render json: { errors: e.message }, status: :unauthorized
-    end
-  end
 
   def login
     user = User.find_by(email: params[:email].downcase)

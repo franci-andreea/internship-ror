@@ -3,8 +3,8 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :products
-
       post '/auth/login', to: "authentication#login"
+      get '/homepage', to: "homepage#index"
     end
   end
 
