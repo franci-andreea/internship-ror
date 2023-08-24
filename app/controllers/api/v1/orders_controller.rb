@@ -1,8 +1,12 @@
-class Api::V1::OrdersController < BaseController
+class Api::V1::OrdersController < Api::V1::BaseController
   include OrdersHelper
+  before_action :authorize_request
+  before_action :has_role_admin?, only: [:mark_order, :index]
 
   def index
-    @orders = Order.in_order_of(:status, [0, 1])
+    orders = Order.in_order_of(:status, [0, 1])
+
+    render json: OrderSerializer.new(orders).serialize, status: :ok
   end
 
   def add_to_cart
@@ -42,10 +46,10 @@ class Api::V1::OrdersController < BaseController
   end
 
   def mark_order
-    @order = Order.find(params[:order_id].to_i)
-    @order.update(status: 1)
+    order = Order.find(params[:order_id].to_i)
+    order.update(status: 1)
 
-    redirect_to orders_path
+    render json: OrderSerializer.new(order).serialize, status: :ok
   end
 
   def new

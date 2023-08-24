@@ -1,3 +1,3 @@
 class OrderSerializer < ApplicationSerializer
-  attributes :id, :total, :user_id
+  attributes :id, :total, :status
 end

@@ -1,8 +1,12 @@
-class Api::V1::UsersController < BaseController
+class Api::V1::UsersController < Api::V1::BaseController
   include UsersHelper
+  before_action :authorize_request, except: :create
+  before_action :has_role_admin?, only: :index
 
   def index
-    @users = User.all
+    users = User.all
+
+    render json: UserSerializer.new(users).serialize, status: :ok
   end
 
   def show 
@@ -15,16 +19,11 @@ class Api::V1::UsersController < BaseController
   end
 
   def create
-    @user = User.new(user_params)
-    if @user.save
-      reset_session
-      login @user
-      flash[:success] = "Welcome to Food Ordering App!"
-      
-      redirect_to @user
-    else
-      render 'new'
-    end
+    user = User.create!(user_params)
+
+    render json: UserSerializer.new(user).serialize, status: :created
+  rescue ActiveRecord::RecordNotSaved
+    render json: { error: "unprocessable_entity" }, status: :unprocessable_entity
   end
 
   def show_cart
@@ -75,6 +74,6 @@ class Api::V1::UsersController < BaseController
 
   private
     def user_params
-      params.require(:user).permit(:name, :email, :password, :password_confirmation)
+      params.permit(:name, :email, :password, :password_confirmation)
     end
 end

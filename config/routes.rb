@@ -5,6 +5,10 @@ Rails.application.routes.draw do
       resources :products
       post '/auth/login', to: "authentication#login"
       get '/homepage', to: "homepage#index"
+
+      post '/orders/mark-order', to: 'orders#mark_order', as: 'mark_order'
+      resources :users
+      resources :orders
     end
   end
 
