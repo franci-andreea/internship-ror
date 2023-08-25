@@ -1,6 +1,7 @@
 class Api::V1::OrdersController < Api::V1::BaseController
   include OrdersHelper
   before_action :authorize_request
+  before_action :has_role_user?, only: [:add_to_cart]
   before_action :has_role_admin?, only: [:mark_order, :index]
 
   def index
@@ -16,18 +17,18 @@ class Api::V1::OrdersController < Api::V1::BaseController
     # check if a cart with this user id already exists
     if get_cart(@user).nil?
       # there is no cart, create a new one
-      @cart = create_cart(@user)
-      if @cart.save
+      cart = create_cart(@user)
+      if cart.save
         puts "Successfully created the cart!"
       end
     else
       # if it does, then add the product to that one
-      @cart = get_cart(@user)
+      cart = get_cart(@user)
     end
     
-    add_product_to_cart(@cart, @product, params[:quantity])
-
-    redirect_to root_path
+    add_product_to_cart(cart, @product, params[:quantity])
+    
+    render json: ProductSerializer.new(cart.products).serialize, status: :ok
   end
 
   def create_order

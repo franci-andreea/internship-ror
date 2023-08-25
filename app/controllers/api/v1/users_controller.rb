@@ -1,6 +1,7 @@
 class Api::V1::UsersController < Api::V1::BaseController
   include UsersHelper
   before_action :authorize_request, except: :create
+  before_action :has_role_user?, only: [:show_carts]
   before_action :has_role_admin?, only: :index
 
   def index
@@ -28,27 +29,28 @@ class Api::V1::UsersController < Api::V1::BaseController
 
   def show_cart
     @user = User.find(params[:id])
-    @cart = Order.find_by("user_id = ? AND is_cart = ?", @user.id, true)
-    if !@cart.nil?
-      @products = get_users_products(@cart)
-      @total = compute_cart_total(@cart)
-      @quantities = compute_quantities(@cart)
+    cart = Order.find_by("user_id = ? AND is_cart = ?", @user.id, true)
+    
+    if !cart.nil?
+      render json: ProductSerializer.new(cart.products).serialize, status: :ok
+    else
+      head :no_content
     end
   end
 
   def remove_from_cart
-    @cart = Order.find(params[:cart_id])
+    cart = Order.find(params[:cart_id])
     product_id = params[:product_id].to_i
-    @quantities = update_quantities(@cart, product_id)
-    @order_product = @cart.order_products.find_by("product_id = ?", product_id)
+    @quantities = update_quantities(cart, product_id)
+    @order_product = cart.order_products.find_by("product_id = ?", product_id)
 
     if @quantities[product_id] == 0
-      @cart.order_products.destroy(@order_product)
+      cart.order_products.destroy(@order_product)
     else
       @order_product.update(quantity: @quantities[product_id])
     end
 
-    redirect_to show_cart_path
+    render json: OrderSerializer.new(cart).serialize, status: :ok
   end
 
   def show_orders
