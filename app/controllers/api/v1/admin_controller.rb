@@ -1,4 +1,4 @@
-class Api::V1::AdminController < BaseController
+class Api::V1::AdminController < Api::V1::BaseController
   
   def index
   end

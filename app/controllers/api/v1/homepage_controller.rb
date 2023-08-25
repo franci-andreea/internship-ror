@@ -1,4 +1,4 @@
-class Api::V1::HomepageController < BaseController
+class Api::V1::HomepageController < Api::V1::BaseController
   before_action :authorize_request
   
   def index
