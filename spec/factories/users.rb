@@ -5,7 +5,7 @@ FactoryBot.define do
     password { Faker::Internet.password(min_length: 6) }
 
     trait :is_admin do
-      admin { true }
+      role { 1 }
     end
   end
 end

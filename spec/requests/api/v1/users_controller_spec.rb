@@ -2,9 +2,9 @@ require_relative '../../../rails_helper'
 
 RSpec.describe 'Users', type: :request do
   # authenticate a user
-  let(:user) { create(:user) }
-  let(:token) { JsonWebToken.encode(user_id: user.id) }
-  let(:header) { {'Authorization' => "Bearer #{token}"} }
+  let(:admin) { create(:user, :is_admin) }
+  let(:token) { JsonWebToken.encode(user_id: admin.id) }
+  let(:headers) { {'Authorization' => "Bearer #{token}"} }
 
   let(:user_params) do
     {
@@ -23,5 +23,26 @@ RSpec.describe 'Users', type: :request do
         expect(JSON.parse(response.body)).to include('id', 'name', 'role')
       end
     end
+  end
+
+  describe 'GET /api/v1/users' do
+    subject { get '/api/v1/users', headers: headers }
+
+    context 'when there are users' do
+      before do
+        create_list(:user, 3)
+        token
+
+        subject
+      end
+
+      it 'should return all users' do
+        puts JSON.parse(response.body)
+        expect(response).to have_http_status(:success)
+        expect(JSON.parse(response.body).size).to eq(4) # includes the created admin above
+        expect(JSON.parse(response.body)).to all(include('id', 'name', 'role'))
+      end
+    end
+
   end
 end
