@@ -34,15 +34,14 @@ class Api::V1::OrdersController < Api::V1::BaseController
   def create_order
     cart_id = params[:cart_id].to_i
     user_id = params[:user_id].to_i
-    total = params[:total].to_i
+    total = params[:total].to_f
 
-    @new_order = Order.find_by("id = ? AND is_cart = ?", cart_id, true)
+    new_order = Order.find_by("id = ? AND is_cart = ?", cart_id, true)
 
-    if @new_order.update(total: total, is_cart: false)
-      flash[:success] = "Order successfully placed!"
-      render 'users/show_cart'
+    if new_order.update(total: total, is_cart: false)
+      render json: OrderSerializer.new(new_order)
     else
-      flash[:danger] = "There was error while processing the order. Try again!"
+      render json: { error: "unprocessable_entity" }, status: :unprocessable_entity
     end
   end
 
