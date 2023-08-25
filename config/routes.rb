@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
       get '/users/:id/my-cart', to: 'users#show_cart', as: 'show_cart'
       put '/users/:id/add-to-cart/:product_id', to: 'orders#add_to_cart', as: 'add_to_cart'
-      post '/users/:id/my-cart/:cart_id/:product_id', to: 'users#remove_from_cart', as: 'remove_from_cart'
+      put '/users/:id/my-cart/:cart_id/:product_id', to: 'users#remove_from_cart', as: 'remove_from_cart'
     end
   end
 

@@ -50,7 +50,7 @@ class Api::V1::UsersController < Api::V1::BaseController
       @order_product.update(quantity: @quantities[product_id])
     end
 
-    render json: OrderSerializer.new(cart).serialize, status: :ok
+    render json: ProductSerializer.new(cart.products).serialize, status: :ok
   end
 
   def show_orders
