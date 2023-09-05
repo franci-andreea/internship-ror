@@ -10,14 +10,15 @@ class HomepageController < ApplicationController
 
     @products = @products.where("category = ?", Product.categories[params[:category]]) if params[:category].present? && params[:category] != 'none'
     if params[:sorting].present? && params[:sorting] != 'none'
-      if params[:sorting] == 'az'
-        @products = @products.order(:name)
-      elsif params[:sorting] == 'za'
-        @products = @products.order(name: :desc)
-      elsif params[:sorting] == 'ascending-price'
-        @products = @products.order(:price)
-      elsif params[:sorting] == 'descending-price'
-        @products = @products.order(price: :desc)
+      case params[:sorting]
+        when 'az'
+          @products = @products.order(:name)
+        when 'za'
+          @products = @products.order(name: :desc)
+        when 'ascending-price'
+          @products = @products.order(:price)
+        when 'descending-price'
+          @products = @products.order(price: :desc)
       end
     end
     @products = @products.where(vegetarian: (params[:vegetarian_select] == 'vegetarian')) if params[:vegetarian_select].present? && params[:vegetarian_select] != 'none'

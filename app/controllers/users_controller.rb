@@ -5,8 +5,16 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
-  def show 
-    @user = User.find(params[:id])
+  def show
+    if current_user.present?
+      if current_user.admin?
+        render 'admin/index'
+      else
+        render 'users/show'
+      end
+    else
+      redirect_to root_path
+    end
   end
 
   def new
