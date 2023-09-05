@@ -6,8 +6,8 @@ class Api::V1::AuthenticationController < Api::V1::BaseController
     user = User.find_by(email: params[:email].downcase)
     if user && user.authenticate(params[:password])
       # login user and redirect to the user's show page
-      token = JsonWebToken.encode(user_id: user.id)
       time = Time.now + 24.hours.to_i
+      token = JsonWebToken.encode({ user_id: user.id, expiration_time: time })
       
       render json: {token: token, exp: time.strftime("%m-%d-%Y %H:%M"), email: user.email}, status: :ok
     else

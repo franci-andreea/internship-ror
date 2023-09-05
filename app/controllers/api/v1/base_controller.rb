@@ -1,6 +1,5 @@
 class Api::V1::BaseController < ActionController::API
   include ActiveStorage::SetCurrent
-  include SessionsHelper
 
   def authorize_request
     header = request.headers['Authorization']
