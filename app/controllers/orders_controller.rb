@@ -2,7 +2,11 @@ class OrdersController < ApplicationController
   include OrdersHelper
 
   def index
-    @orders = Order.in_order_of(:status, [0, 1])
+    if current_user.admin?
+      @orders = Order.in_order_of(:status, [0, 1])
+    else
+      redirect_to root_path
+    end
   end
 
   def add_to_cart
