@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   get '/homepage', to: "homepage#index"
   get '/filter', to: "homepage#index"
 
-  get '/admin', to: "admin#index"
+  get '/admin', to: "users#show", as: 'admin'
 
   get '/signup', to: 'users#new'
   get '/login', to: 'sessions#new'
