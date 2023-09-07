@@ -1,11 +1,19 @@
 class ProductsController < ApplicationController
   def index
-    @products = Product.all
+    if current_user.admin?
+      @products = Product.all
+    else 
+      redirect_to root_path
+    end
   end
 
   def new
-    @categories = Product.categories.keys
-    @product = Product.new
+    if current_user.admin?
+      @categories = Product.categories.keys
+      @product = Product.new
+    else 
+      redirect_to root_path
+    end
   end
 
   def create
@@ -20,8 +28,12 @@ class ProductsController < ApplicationController
   end
 
   def edit
-    @product = Product.find(params[:id])
-    @categories = Product.categories.keys
+    if current_user.admin?
+      @product = Product.find(params[:id])
+      @categories = Product.categories.keys
+    else
+      redirect_to root_path
+    end
   end
 
   def update
