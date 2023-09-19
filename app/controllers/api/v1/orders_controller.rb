@@ -51,16 +51,4 @@ class Api::V1::OrdersController < Api::V1::BaseController
 
     render json: OrderSerializer.new(order).serialize, status: :ok
   end
-
-  def new
-  end
-
-  def create
-  end
-
-  def update
-  end
-
-  def destroy
-  end
 end
