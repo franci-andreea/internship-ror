@@ -1,6 +1,10 @@
 class SessionsController < ApplicationController
   def new
-    @login = true
+    if logged_in?
+      redirect_to root_path
+    else
+      @login = true
+    end
   end
 
   def create
@@ -12,15 +16,18 @@ class SessionsController < ApplicationController
       remember user
       params[:session][:remember_me] == '1' ? remember(user) : forget(user)
       session[:session_token] = user.session_token
-      redirect_to user
+      
+      redirect_to root_path
     else
       flash.now[:danger] = 'Invalid email/password combination'
+
       render 'new'
     end
   end
 
   def destroy
     log_out if logged_in?
+
     redirect_to root_path
   end
 end
