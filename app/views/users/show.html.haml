@@ -1,0 +1,13 @@
+= render 'homepage/header'
+%body
+  .info-container
+    %h1.first-name
+      = gravatar_for(current_user)
+      = current_user.name
+    .details-container
+      .email-field
+        Email: #{current_user.email}
+
+    .buttons-container
+      %button.edit-button EDIT
+      %button.edit-button DELETE

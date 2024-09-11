@@ -1,0 +1,174 @@
+@import './colours.scss';
+
+@font-face {
+    font-family: Oswald;
+    @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap');
+}
+
+@font-face {
+    font-family: Roboto;
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+}
+
+$oswald-font: Oswald;
+$roboto-font: Roboto;
+
+$font-weights: (
+    "_lighter": 200,
+    "_light": 300,
+    "_normal": 400,
+    "_light-bold": 600,
+    "_bold": 700,
+    "_bolder": 800
+);
+
+#logo-text {
+    font-family: $oswald-font;
+    font-weight: map-get($font-weights, _bold);
+    color: $white;
+}
+
+.navbar-item {
+    font-family: $roboto-font;
+    font-weight: map-get($font-weights, _normal);
+    font-stretch: semi-expanded;
+    color: $white;
+}
+
+.main-message-text {
+    font-family: $oswald-font;
+    font-weight: map-get($font-weights, _light-bold);
+    font-stretch: semi-expanded;
+    color: $white;
+}
+
+#slogan {
+    font-family: $oswald-font;
+    font-weight: map-get($font-weights, _light);
+    font-stretch: normal;
+    font-size: 24px;
+    text-align: center;
+    color: $white;
+}
+
+.drop-button {
+    font-family: $oswald-font;
+    font-weight: map-get($font-weights, _normal);
+    font-stretch: expanded;
+    font-size: 18px;
+    color: $white;
+}
+
+.dropdown-content .profile-drop-content {
+    font-family: $oswald-font;
+    font-weight: map-get($font-weights, _light);
+    font-stretch: expanded;
+    font-size: 16px;
+    color: black;
+}
+
+.price {
+    font-family: $oswald-font;
+    font-weight: map-get($font-weights, _normal);
+    font-stretch: expanded;
+    font-size: 18px;
+    color: $white;
+}
+
+.food-name {
+    font-family: $oswald-font;
+    font-weight: map-get($font-weights, _light);
+    font-stretch: semi-expanded;
+    font-size: 24px;
+}
+
+.food-category {
+    font-family: $roboto-font;
+    font-weight: map-get($font-weights, _lighter);
+    font-stretch: semi-expanded;
+    font-size: 20px;
+    color: $grey;
+}
+
+.food-price {
+    font-family: $oswald-font;
+    font-weight: map-get($font-weights, _bolder);
+    font-stretch: expanded;
+    font-size: x-large;
+    color: $red;
+}
+
+.social-media {
+    font-family: $oswald-font;
+    font-weight: map-get($font-weights, _light_bold);
+    font-stretch: normal;
+    font-size: 18px;
+    color: $white;
+}
+
+.credits-text {
+    font-family: $roboto-font;
+    font-weight: map-get($font-weights, _lighter);
+    font-stretch: semi-expanded;
+    color: $white;
+}
+
+.apply-filters-button {
+    font-family: $oswald-font;
+    font-weight: map-get($font-weights, _light-bold);
+    font-stretch: normal;
+    font-size: 18px;
+}
+
+.edit-button {
+    font-family: $oswald-font;
+    font-weight: map-get($font-weights, _light-bold);
+    font-stretch: normal;
+    font-size: 18px;
+}
+
+.reset-filters-link {
+    font-family: $oswald-font;
+    font-weight: map-get($font-weights, _light-bold);
+    font-stretch: normal;
+    font-size: 18px;
+}
+
+.login-form-container {
+    font-family: $roboto-font;
+    font-weight: map-get($font-weights, _light-bold);
+    font-size: 18px;
+    color: $white;
+}
+
+.first-name {
+    font-family: $roboto-font;
+    color: $white;
+}
+
+.email-field {
+    font-family: $roboto-font;
+    font-size: 24px;
+    color: $white;
+}
+
+.profile-drop-button {
+    font-family: $roboto-font;
+    font-weight: map-get($font-weights, _normal);
+    font-stretch: semi-expanded;
+    color: $white;
+}
+
+.cart-title {
+    font-family: $oswald-font;
+    font-weight: map-get($font-weights, _bold);
+    font-stretch: normal;
+    color: $white;
+}
+
+.cart-text {
+    font-family: $roboto-font;
+    font-weight: map-get($font-weights, _bold);
+    font-stretch: semi-expanded;
+    color: $brown
+}

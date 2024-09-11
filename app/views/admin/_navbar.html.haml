@@ -1,0 +1,23 @@
+%nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
+  -# = link_to "ADMIN DASHBOARD - #{@current_user.name}", '/admin', class: ".navbar-brand"
+  %a{href: admin_path, class: "navbar-brand"} Dashboard - #{@current_user.name}
+
+  %button.navbar-toggler{:type => "button", "data-toggle" => "collapse", "data-target" => "#navbarNav", "aria-controls" => "navbarNav", "aria-expanded" => "false", "aria-label" => "Toggle navigation"}
+    %span.navbar-toggler-icon
+
+  .collapse.navbar-collapse#navbarNav
+    %ul.navbar-nav
+      %li.nav-item.nav-link.active
+        %a{href: root_path, class: "nav-link"}Home
+        
+      %li.nav-item.nav-link.active
+        %a{href: users_path, class: "nav-link"}Users
+
+      %li.nav-item.nav-link.active
+        %a{href: products_path, class: "nav-link"}Products
+
+      %li.nav-item.nav-link.active
+        %a{href: orders_path, class: "nav-link"}Orders
+      
+      %li.nav-item.nav-link.active
+        %a{href: logout_path, class: "nav-link"}Log Out
